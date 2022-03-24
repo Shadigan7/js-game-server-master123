@@ -39,7 +39,7 @@
     }
 
   </style>
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 </head>
 
 <body>
@@ -51,7 +51,8 @@
         style="text-decoration: none;height: 50px; background-color: purple; padding: 30px" href="#"
         data-value="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga">Zagraj</a></li>
   </ul>
-
+  <div class="win" style="display:none; width: 50vw; font-size: 50px ;height: 50vh; text-align: center;
+  line-height: 50vh; background-color: red; z-index: 10000; position: absolute;"></div>
   <audio id="audio" style="display:none" id="audio" autoplay loop controls="controls">
     <source id="audioSource" src="">
     </source>
@@ -61,7 +62,6 @@
   </div>
  <button style="cursor:pointer" id="mute" class='fas fa-volume-mute'></button>
  <button style="cursor:pointer; display:none" id="unmute" class='fas fa-volume-up'></button>
-  <script src="js/canvas.js"></script>
 </body>
 
 </html>

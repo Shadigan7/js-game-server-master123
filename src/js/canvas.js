@@ -325,13 +325,15 @@ function animate() {
     })
 
     
-        console.log(scrollOffset)
-    if (scrollOffset > 1000) {
-    //WIN 
-        console.log('you win')
-        
+     //win
+     if(scrollOffset == 2600){
+      let youResult = counter.textContent
+    console.log(youResult)  
+    const win = document.querySelector('.win') 
+    win.style.display = 'block';
+    win.innerText = `Twój wynik to: ${youResult}`
+    counter.style.display = 'none';
     }
-    
 }
 animate()
 window.addEventListener('keydown', ({
@@ -364,22 +366,29 @@ window.addEventListener('keyup', ({
     console.log(keyCode)
     switch (keyCode) {
         case 37:
-            console.log('left')
-            keys.left.pressed = false;
-            break
+          if(scrollOffset < 2600){
+          console.log('left');
+          keys.left.pressed = false;}
+          break;
+    
         case 39:
-            console.log('right')
-            keys.right.pressed = false;
-            break
+          if(scrollOffset < 2600){
+          console.log('right');
+          keys.right.pressed = false;}
+          break;
+    
         case 38:
-            console.log('up')
-            player.velocity.y -= 10;
-            break
+          if(scrollOffset < 2600){
+          console.log(player.position);
+          player.velocity.y -= 5;}
+          break;
+    
         case 40:
-            console.log('down')
-            player.velocity.y += 5;
-            break
-    }
+          if(scrollOffset < 2600){
+          console.log('down');
+          player.velocity.y += 5;}
+          break;
+      }
 })
 
 

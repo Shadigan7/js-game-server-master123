@@ -428,7 +428,6 @@ var keys = {
 };
 var scrollOffset = 0;
 
-
 function animate() {
   requestAnimationFrame(animate);
   c.fillStyle = 'white';
@@ -457,7 +456,7 @@ function animate() {
   } else {
     player.velocity.x = 0;
 
-    if (keys.right.pressed ) {
+    if (keys.right.pressed) {
       scrollOffset += 5;
       platforms.forEach(function (platform) {
         platform.position.x -= 5;
@@ -495,20 +494,17 @@ function animate() {
     if (player.position.y + player.height <= floor.position.y && player.position.y + player.height + player.velocity.y >= floor.position.y && player.position.x + player.width >= floor.position.x && player.position.x <= floor.position.x + floor.width) {
       player.velocity.y = 0;
     }
-  });
-   
-    if(scrollOffset == 2600){
-      console.log('Pierdol sie ruski smieciu')
-    let youResult = counter.textContent
-  console.log(youResult)  
-  const win = document.querySelector('.win') 
-  win.style.display = 'block';
-  win.innerText = `Twój wynik to: ${youResult}`
-  counter.style.display = 'none';
+  }); //win
 
+  if (scrollOffset == 2600) {
+    var youResult = counter.textContent;
+    console.log(youResult);
+    var win = document.querySelector('.win');
+    win.style.display = 'block';
+    win.innerText = "Tw\xF3j wynik to: ".concat(youResult);
+    counter.style.display = 'none';
   }
 }
-
 
 animate();
 window.addEventListener('keydown', function (_ref6) {
@@ -517,26 +513,23 @@ window.addEventListener('keydown', function (_ref6) {
 
   switch (keyCode) {
     case 37:
-      if(scrollOffset < 2600 ){
       console.log('left');
-      keys.left.pressed = true;}
+      keys.left.pressed = true;
       break;
 
     case 39:
-      if(scrollOffset < 2600){
       console.log('right');
-      keys.right.pressed = true;}
+      keys.right.pressed = true;
       break;
 
     case 38:
-      if(scrollOffset < 2600){
-      player.velocity.y -= 5;}
+      console.log('up');
+      player.velocity.y -= 5;
       break;
 
     case 40:
-      if(scrollOffset < 2600){
       console.log('down');
-      player.velocity.y += 5;}
+      player.velocity.y += 5;
       break;
   }
 });
@@ -546,27 +539,35 @@ window.addEventListener('keyup', function (_ref7) {
 
   switch (keyCode) {
     case 37:
-      if(scrollOffset < 2600){
-      console.log('left');
-      keys.left.pressed = false;}
+      if (scrollOffset < 2600) {
+        console.log('left');
+        keys.left.pressed = false;
+      }
+
       break;
 
     case 39:
-      if(scrollOffset < 2600){
-      console.log('right');
-      keys.right.pressed = false;}
+      if (scrollOffset < 2600) {
+        console.log('right');
+        keys.right.pressed = false;
+      }
+
       break;
 
     case 38:
-      if(scrollOffset < 2600){
-      console.log(player.position);
-      player.velocity.y -= 5;}
+      if (scrollOffset < 2600) {
+        console.log(player.position);
+        player.velocity.y -= 5;
+      }
+
       break;
 
     case 40:
-      if(scrollOffset < 2600){
-      console.log('down');
-      player.velocity.y += 5;}
+      if (scrollOffset < 2600) {
+        console.log('down');
+        player.velocity.y += 5;
+      }
+
       break;
   }
 }); //AUDIO 
@@ -607,12 +608,9 @@ var count = function count() {
   }
 };
 
-
-
 var play = document.querySelector('.play');
 play.addEventListener('click', function () {
   play.style.display = 'none';
-
   var counterCount = setInterval(count, 1000);
   counter.style.display = 'block';
 });
